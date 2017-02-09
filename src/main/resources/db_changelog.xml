@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet author="estaine (generated)" id="1486636119277-1">
+        <createTable catalogName="mfin" tableName="account">
+            <column autoIncrement="true" name="account_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="account_name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="currency_iso_code" type="CHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="person_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-2">
+        <createTable catalogName="mfin" tableName="currency">
+            <column name="currency_iso_code" type="CHAR(3)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-3">
+        <createTable catalogName="mfin" tableName="loan_transaction">
+            <column name="transaction_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="account_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="third_party_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="related_loan_transaction_id" type="INT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-4">
+        <createTable catalogName="mfin" tableName="person">
+            <column autoIncrement="true" name="person_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="first_name" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-5">
+        <createTable catalogName="mfin" tableName="simple_transaction">
+            <column name="transaction_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="account_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="amount" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-6">
+        <createTable catalogName="mfin" tableName="third_party">
+            <column autoIncrement="true" name="third_party_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-7">
+        <createTable catalogName="mfin" tableName="transaction_header">
+            <column autoIncrement="true" name="transaction_id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="date" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-8">
+        <createTable catalogName="mfin" tableName="transfer_transaction">
+            <column name="transaction_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="from_account_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="to_account_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="from_amount" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="to_amount" type="DOUBLE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-9">
+        <addPrimaryKey catalogName="mfin" columnNames="currency_iso_code" constraintName="PRIMARY" tableName="currency"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-10">
+        <addPrimaryKey catalogName="mfin" columnNames="transaction_id" constraintName="PRIMARY" tableName="loan_transaction"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-11">
+        <addPrimaryKey catalogName="mfin" columnNames="transaction_id" constraintName="PRIMARY" tableName="simple_transaction"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-12">
+        <addPrimaryKey catalogName="mfin" columnNames="transaction_id" constraintName="PRIMARY" tableName="transfer_transaction"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-13">
+        <addForeignKeyConstraint baseColumnNames="currency_iso_code" baseTableCatalogName="mfin" baseTableName="account" constraintName="account_currency_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="currency_iso_code" referencedTableCatalogName="mfin" referencedTableName="currency"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-14">
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableCatalogName="mfin" baseTableName="account" constraintName="account_person_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="person_id" referencedTableCatalogName="mfin" referencedTableName="person"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-15">
+        <addForeignKeyConstraint baseColumnNames="account_id" baseTableCatalogName="mfin" baseTableName="loan_transaction" constraintName="loan_transaction_account_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="account_id" referencedTableCatalogName="mfin" referencedTableName="account"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-16">
+        <addForeignKeyConstraint baseColumnNames="related_loan_transaction_id" baseTableCatalogName="mfin" baseTableName="loan_transaction" constraintName="loan_transaction_loan_transaction_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="transaction_id" referencedTableCatalogName="mfin" referencedTableName="loan_transaction"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-17">
+        <addForeignKeyConstraint baseColumnNames="third_party_id" baseTableCatalogName="mfin" baseTableName="loan_transaction" constraintName="loan_transaction_third_party_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="third_party_id" referencedTableCatalogName="mfin" referencedTableName="third_party"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-18">
+        <addForeignKeyConstraint baseColumnNames="transaction_id" baseTableCatalogName="mfin" baseTableName="loan_transaction" constraintName="loan_transaction_transaction_header_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="transaction_id" referencedTableCatalogName="mfin" referencedTableName="transaction_header"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-19">
+        <addForeignKeyConstraint baseColumnNames="account_id" baseTableCatalogName="mfin" baseTableName="simple_transaction" constraintName="simple_transaction_account_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="account_id" referencedTableCatalogName="mfin" referencedTableName="account"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-20">
+        <addForeignKeyConstraint baseColumnNames="transaction_id" baseTableCatalogName="mfin" baseTableName="simple_transaction" constraintName="simple_transaction_transaction_header_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="transaction_id" referencedTableCatalogName="mfin" referencedTableName="transaction_header"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-21">
+        <addForeignKeyConstraint baseColumnNames="from_account_id" baseTableCatalogName="mfin" baseTableName="transfer_transaction" constraintName="transfer_transaction_account_fk_1" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="account_id" referencedTableCatalogName="mfin" referencedTableName="account"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-22">
+        <addForeignKeyConstraint baseColumnNames="to_account_id" baseTableCatalogName="mfin" baseTableName="transfer_transaction" constraintName="transfer_transaction_account_fk_2" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="account_id" referencedTableCatalogName="mfin" referencedTableName="account"/>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-23">
+        <addForeignKeyConstraint baseColumnNames="transaction_id" baseTableCatalogName="mfin" baseTableName="transfer_transaction" constraintName="transfer_transaction_transaction_header_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="transaction_id" referencedTableCatalogName="mfin" referencedTableName="transaction_header"/>
+    </changeSet>
+</databaseChangeLog>
