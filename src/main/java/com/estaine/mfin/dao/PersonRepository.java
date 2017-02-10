@@ -2,8 +2,11 @@ package com.estaine.mfin.dao;
 
 import com.estaine.mfin.model.Person;
 import java.util.Collection;
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
 
-public interface PersonRepository extends JpaRepository<Person, Integer> {
-    Collection<Person> findByEmail(String email);
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.Repository;
+
+public interface PersonRepository extends Repository<Person, Integer> {
+    List<Person> findAll();
 }
