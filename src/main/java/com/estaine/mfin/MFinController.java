@@ -1,9 +1,8 @@
 package com.estaine.mfin;
 
-import com.estaine.mfin.model.Account;
-import com.estaine.mfin.model.Person;
-import com.estaine.mfin.service.AccountService;
-import com.estaine.mfin.service.PersonService;
+import com.estaine.mfin.model.SimpleTransaction;
+import com.estaine.mfin.model.TransactionHeader;
+import com.estaine.mfin.service.SimpleTransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +16,11 @@ import java.util.List;
 public class MFinController {
 
     @Autowired
-    AccountService accountService;
+    SimpleTransactionService simpleTransactionService;
 
     @RequestMapping(method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public List<Account> index() {
-        return accountService.findAll();
+    public List<SimpleTransaction> index() {
+        List<SimpleTransaction> trxs = simpleTransactionService.findAll();
+        return trxs;
     }
 }
