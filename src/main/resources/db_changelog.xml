@@ -147,4 +147,12 @@
     <changeSet author="estaine (generated)" id="1486636119277-23">
         <addForeignKeyConstraint baseColumnNames="id" baseTableCatalogName="mfin" baseTableName="transfer_transaction" constraintName="transfer_transaction_transaction_header_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableCatalogName="mfin" referencedTableName="transaction_header"/>
     </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-24">
+        <addColumn catalogName="mfin" tableName="third_party">
+            <column name="person_id" type="INT"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-25">
+        <addForeignKeyConstraint baseColumnNames="person_id" baseTableCatalogName="mfin" baseTableName="third_party" constraintName="third_party_person_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableCatalogName="mfin" referencedTableName="person"/>
+    </changeSet>
 </databaseChangeLog>

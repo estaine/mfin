@@ -9,4 +9,6 @@ public class MFinApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MFinApplication.class, args);
 	}
+
+
 }

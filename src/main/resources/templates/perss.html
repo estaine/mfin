@@ -1,0 +1,16 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+
+<table>
+    <tr>
+        <th>First name</th>
+        <th>Email</th>
+    </tr>
+    <tr th:each="pers : ${perss}">
+        <td th:text="${pers.firstName}">John</td>
+        <td th:text="${pers.email}">john.stallman@isis.aa</td>
+    </tr>
+</table>
+
+</html>

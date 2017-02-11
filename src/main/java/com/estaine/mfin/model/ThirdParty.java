@@ -6,16 +6,16 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Person {
+public class ThirdParty {
     @Id
     @GeneratedValue
     @Getter private Integer id;
 
-    @Getter @Setter private String firstName;
+    @Getter @Setter private String name;
 
-    @Getter @Setter private String lastName;
-
-    @Getter @Setter private String email;
+    @ManyToOne
+    @Getter @Setter private Person person;
 }
