@@ -27,6 +27,7 @@
         <liquibase.username>root</liquibase.username>
         <liquibase.password>root</liquibase.password>
         <liquibase.change-log>classpath:db_changelog.xml</liquibase.change-log>
+        <spring-security.version>4.2.1.RELEASE</spring-security.version>
     </properties>
 
     <dependencies>
@@ -60,7 +61,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.stormpath.spring</groupId>
+            <artifactId>stormpath-default-spring-boot-starter</artifactId>
+            <version>1.5.4</version>
+        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>

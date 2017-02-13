@@ -17,5 +17,5 @@ public class Account {
     @Getter @Setter private Currency currency;
 
     @ManyToOne
-    @Getter @Setter private Person person;
+    @Getter @Setter private User user;
 }

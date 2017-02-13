@@ -17,5 +17,5 @@ public class ThirdParty {
     @Getter @Setter private String name;
 
     @ManyToOne
-    @Getter @Setter private Person person;
+    @Getter @Setter private User user;
 }

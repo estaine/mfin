@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Person {
+public class User {
     @Id
     @GeneratedValue
     @Getter private Integer id;
