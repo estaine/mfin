@@ -7,6 +7,5 @@ import java.util.List;
 
 public interface UserRepository extends Repository<User, Integer> {
     List<User> findAll();
-    User findByUsername(String username);
     void save(User user);
 }
