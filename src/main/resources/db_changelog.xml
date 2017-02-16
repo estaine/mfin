@@ -155,4 +155,20 @@
     <changeSet author="estaine (generated)" id="1486636119277-25">
         <addForeignKeyConstraint baseColumnNames="person_id" baseTableCatalogName="mfin" baseTableName="third_party" constraintName="third_party_person_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableCatalogName="mfin" referencedTableName="person"/>
     </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-26">
+        <createTable catalogName="mfin" tableName="tag">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="transaction_id" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="estaine (generated)" id="1486636119277-27">
+        <addForeignKeyConstraint baseColumnNames="transaction_id" baseTableCatalogName="mfin" baseTableName="tag" constraintName="tag_transaction_header_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableCatalogName="mfin" referencedTableName="transaction_header"/>
+    </changeSet>
 </databaseChangeLog>
