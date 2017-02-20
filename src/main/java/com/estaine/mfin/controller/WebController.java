@@ -28,20 +28,6 @@ public class WebController {
     @Autowired
     AccountResolver accountResolver;
 
-    @RequestMapping(value = "transactions", method = RequestMethod.GET)
-    public String transactions(Model model) {
-        List<Transaction> trxs = transactionService.findAll();
-        model.addAttribute("trxs", trxs);
-        return "trxs";
-    }
-
-    @RequestMapping(value = "persons", method = RequestMethod.GET)
-    public String persons(Model model) {
-        List<User> perss = userService.findAll();
-        model.addAttribute("perss", perss);
-        return "perss";
-    }
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(HttpServletRequest req, Model model) {
 
