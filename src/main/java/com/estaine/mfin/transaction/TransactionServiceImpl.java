@@ -1,5 +1,6 @@
 package com.estaine.mfin.transaction;
 
+import com.estaine.mfin.person.Person;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,22 @@ public class TransactionServiceImpl implements TransactionService {
         transactions.addAll(simpleTransactionRepository.findAll());
         transactions.addAll(transferTransactionRepository.findAll());
         transactions.addAll(loanTransactionRepository.findAll());
+
+        return transactions;
+    }
+
+    @Override
+    public void save(Transaction transaction) {
+
+    }
+
+    @Override
+    public List<Transaction> findByPerson(Person person) {
+        List<Transaction> transactions = new ArrayList<>();
+
+        transactions.addAll(simpleTransactionRepository.findByAccountPerson(person));
+        transactions.addAll(transferTransactionRepository.findByPerson(person));
+        transactions.addAll(loanTransactionRepository.findByAccountPerson(person));
 
         return transactions;
     }

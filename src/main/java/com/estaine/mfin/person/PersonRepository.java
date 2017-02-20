@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface PersonRepository extends Repository<Person, Integer> {
     List<Person> findAll();
+    Person findByEmail(String email);
     void save(Person person);
 }

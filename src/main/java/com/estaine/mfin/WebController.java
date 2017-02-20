@@ -1,5 +1,6 @@
 package com.estaine.mfin;
 
+import com.estaine.mfin.person.Person;
 import com.estaine.mfin.person.PersonService;
 import com.estaine.mfin.transaction.TransactionService;
 import com.stormpath.sdk.servlet.account.AccountResolver;
@@ -26,11 +27,13 @@ public class WebController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(HttpServletRequest req, Model model) {
 
-        String email = "test";
         if(accountResolver.getAccount(req) != null) {
-            email = accountResolver.getAccount(req).getEmail();
+            Person person = personService.findByEmail(accountResolver.getAccount(req).getEmail());
+
+            String fullName = person.getFirstName() + " " + person.getLastName();
+            model.addAttribute("fullName", fullName);
         }
-        model.addAttribute("pemail", email);
+
         return "index";
     }
 }

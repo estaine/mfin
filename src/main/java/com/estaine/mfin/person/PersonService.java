@@ -7,4 +7,5 @@ import java.util.List;
 public interface PersonService {
     List<Person> findAll();
     void save(Person person);
+    Person findByEmail(String email);
 }

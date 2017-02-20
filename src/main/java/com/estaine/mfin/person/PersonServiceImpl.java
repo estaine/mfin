@@ -22,4 +22,9 @@ public class PersonServiceImpl implements PersonService {
     public void save(Person person) {
         personRepository.save(person);
     }
+
+    @Override
+    public Person findByEmail(String email) {
+        return personRepository.findByEmail(email);
+    }
 }
