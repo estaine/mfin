@@ -1,5 +1,6 @@
-package com.estaine.mfin.model;
+package com.estaine.mfin.transaction;
 
+import com.estaine.mfin.account.Account;
 import lombok.Getter;
 import lombok.Setter;
 

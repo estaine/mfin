@@ -1,13 +1,8 @@
-package com.estaine.mfin.service;
-
-import com.estaine.mfin.dao.LoanTransactionRepository;
-import com.estaine.mfin.dao.SimpleTransactionRepository;
-import com.estaine.mfin.dao.TransferTransactionRepository;
+package com.estaine.mfin.transaction;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.estaine.mfin.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

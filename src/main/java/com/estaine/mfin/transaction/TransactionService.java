@@ -1,6 +1,4 @@
-package com.estaine.mfin.service;
-
-import com.estaine.mfin.model.Transaction;
+package com.estaine.mfin.transaction;
 
 import java.util.List;
 

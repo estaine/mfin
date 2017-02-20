@@ -1,6 +1,5 @@
-package com.estaine.mfin.dao;
+package com.estaine.mfin.transaction;
 
-import com.estaine.mfin.model.Tag;
 import org.springframework.data.repository.Repository;
 
 public interface TagRepository extends Repository<Tag, Integer> {

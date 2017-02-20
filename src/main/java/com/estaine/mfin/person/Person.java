@@ -1,4 +1,4 @@
-package com.estaine.mfin.model;
+package com.estaine.mfin.person;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class User {
+public class Person {
     @Id
     @GeneratedValue
     @Getter private Integer id;

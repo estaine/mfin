@@ -1,6 +1,5 @@
-package com.estaine.mfin.dao;
+package com.estaine.mfin.account;
 
-import com.estaine.mfin.model.Account;
 import org.springframework.data.repository.Repository;
 
 import java.util.List;

@@ -1,5 +1,6 @@
-package com.estaine.mfin.model;
+package com.estaine.mfin.transaction;
 
+import com.estaine.mfin.person.Person;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,5 +18,5 @@ public class ThirdParty {
     @Getter @Setter private String name;
 
     @ManyToOne
-    @Getter @Setter private User user;
+    @Getter @Setter private Person person;
 }

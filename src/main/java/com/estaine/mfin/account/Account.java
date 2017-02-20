@@ -1,5 +1,6 @@
-package com.estaine.mfin.model;
+package com.estaine.mfin.account;
 
+import com.estaine.mfin.person.Person;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,5 +18,5 @@ public class Account {
     @Getter @Setter private Currency currency;
 
     @ManyToOne
-    @Getter @Setter private User user;
+    @Getter @Setter private Person person;
 }

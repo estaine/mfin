@@ -1,7 +1,5 @@
-package com.estaine.mfin.service;
+package com.estaine.mfin.account;
 
-import com.estaine.mfin.dao.AccountRepository;
-import com.estaine.mfin.model.Account;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

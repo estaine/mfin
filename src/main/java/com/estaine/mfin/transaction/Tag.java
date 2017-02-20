@@ -1,4 +1,4 @@
-package com.estaine.mfin.model;
+package com.estaine.mfin.transaction;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

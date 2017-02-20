@@ -1,11 +1,7 @@
-package com.estaine.mfin.controller;
+package com.estaine.mfin;
 
-import com.estaine.mfin.model.User;
-import com.estaine.mfin.model.Transaction;
-import com.estaine.mfin.service.UserService;
-import com.estaine.mfin.service.TransactionService;
-import com.stormpath.sdk.account.Account;
-import com.stormpath.sdk.application.Application;
+import com.estaine.mfin.person.PersonService;
+import com.estaine.mfin.transaction.TransactionService;
 import com.stormpath.sdk.servlet.account.AccountResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Controller
 public class WebController {
@@ -23,7 +18,7 @@ public class WebController {
     TransactionService transactionService;
 
     @Autowired
-    UserService userService;
+    PersonService personService;
 
     @Autowired
     AccountResolver accountResolver;

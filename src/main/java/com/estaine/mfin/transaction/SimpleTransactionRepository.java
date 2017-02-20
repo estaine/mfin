@@ -1,6 +1,5 @@
-package com.estaine.mfin.dao;
+package com.estaine.mfin.transaction;
 
-import com.estaine.mfin.model.SimpleTransaction;
 import java.util.List;
 import org.springframework.data.repository.Repository;
 

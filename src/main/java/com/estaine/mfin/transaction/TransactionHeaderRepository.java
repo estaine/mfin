@@ -1,6 +1,5 @@
-package com.estaine.mfin.dao;
+package com.estaine.mfin.transaction;
 
-import com.estaine.mfin.model.Transaction;
 import org.springframework.data.repository.Repository;
 
 public interface TransactionHeaderRepository extends Repository<Transaction, Integer> {
