@@ -21,23 +21,12 @@ public class TransactionServiceImpl implements TransactionService {
     LoanTransactionRepository loanTransactionRepository;
 
     @Override
-    public List<Transaction> findAll() {
-        List<Transaction> transactions = new ArrayList<>();
-
-        transactions.addAll(simpleTransactionRepository.findAll());
-        transactions.addAll(transferTransactionRepository.findAll());
-        transactions.addAll(loanTransactionRepository.findAll());
-
-        return transactions;
-    }
-
-    @Override
     public void save(Transaction transaction) {
 
     }
 
     @Override
-    public List<Transaction> findByPerson(Person person) {
+    public List<Transaction> findAll(Person person) {
         List<Transaction> transactions = new ArrayList<>();
 
         transactions.addAll(simpleTransactionRepository.findByAccountPerson(person));
